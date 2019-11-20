@@ -1,5 +1,4 @@
-import java.uitl.HashSet;
-ㅑㅡ
+import java.util.*;
 /**
  * 여기에 Library 클래스 설명을 작성하십시오.
  * 
@@ -9,10 +8,10 @@ import java.uitl.HashSet;
 public class Library
 {
     private String name; // 도서관은 하나의 이름을 가진다.
-    private HashSet <Borrower> registeredBorrowers;
+    private HashSet<Borrower> registeredBorrowers;
     public Library(String name){
         this.name = name;
-        registeredBorrowers = new HashSet <Borrower> ();
+        registeredBorrowers = new HashSet<Borrower>();
     }
     public void registerOneBorrower(String name){ // 동명이인을 확인한다, new borrower(name)
         Borrower borrower = new Borrower(name);
