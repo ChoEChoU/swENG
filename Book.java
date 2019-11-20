@@ -16,10 +16,5 @@ public class Book
         this.author = author;
         this.title = title;
     }
-    public void display(){}
-    public void attachLoan(){}
-    public void detachLoan(){}
-    public void getLoan(){}
-    public int compareTo(){}
-    public boolean equals(){}
+
 }
