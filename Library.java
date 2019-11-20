@@ -8,6 +8,7 @@ import java.util.*;
 public class Library
 {
     private String name; // 도서관은 하나의 이름을 가진다.
+    private TreeSet<Book> registeredBooks;
     private HashSet<Borrower> registeredBorrowers;
     public Library(String name){
         this.name = name;
@@ -17,7 +18,10 @@ public class Library
         Borrower borrower = new Borrower(name);
         registeredBorrowers.add(borrower);
     }
-    public void registerOneBook(){}
+    public void registerOneBook(int CatalogueNumber, String title, String author){
+        Book book = new Book(CatalogueNumber,title,author);
+        registeredBooks.add(book);
+    }
     public void displayBooksForLoan(){}
     public void displayBooksOnLoan(){}
     public void LendOneBook(){}
