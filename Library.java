@@ -14,27 +14,39 @@ public class Library
         this.name = name;
         registeredBorrowers = new HashSet<Borrower>();
     }
+
     public void registerOneBorrower(String name){ // 동명이인을 확인한다, new borrower(name)
         Borrower borrower = new Borrower(name);
         registeredBorrowers.add(borrower);
     }
+
     public void registerOneBook(int CatalogueNumber, String title, String author){
         Book book = new Book(CatalogueNumber,title,author);
         registeredBooks.add(book);
     }
+
     public void displayBooksForLoan(){}
+
     public void displayBooksOnLoan(){}
-    public void LendOneBook(int CatalogueNumber)
+
+    public void LendOneBook(int CatalogueNumber,String Name)
     {
-        Iterator iter = registeredBooks.iterator();
-        while(iter.hasNext()){
-            Book book = (Book)iter.next();
+        Iterator iterbook = registeredBooks.iterator();
+        while(iterbook.hasNext()){
+            Book book = (Book)iterbook.next();
             int bookCatalogueNumber = book.getCatalogueNumber();
             if(CatalogueNumber == bookCatalogueNumber){
-                
+                Iterator iterborrower = registeredBorrowers.iterator();
+                while(iterborrower.hasNext()){
+                    Borrower borrower = (Borrower)iterborrower.next();
+                    String borrowername = borrower.getName();
+                    if(Name.equals(borrowername)){
+
+                    }
+                }
             }
         }
-        
     }
+
     public void ReturnOneBook(){}
 }
