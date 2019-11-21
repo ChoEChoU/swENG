@@ -41,7 +41,7 @@ public class Library
                     Borrower borrower = (Borrower)iterborrower.next();
                     String borrowername = borrower.getName();
                     if(Name.equals(borrowername)){
-
+                        Loan loan = new Loan(book, borrower);
                     }
                 }
             }
