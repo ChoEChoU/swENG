@@ -16,5 +16,7 @@ public class Book
         this.author = author;
         this.title = title;
     }
-
+    public int getCatalogueNumber(){
+        return this.CatalougeNumber;
+    }
 }

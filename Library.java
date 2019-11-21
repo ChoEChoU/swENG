@@ -24,6 +24,17 @@ public class Library
     }
     public void displayBooksForLoan(){}
     public void displayBooksOnLoan(){}
-    public void LendOneBook(){}
+    public void LendOneBook(int CatalogueNumber)
+    {
+        Iterator iter = registeredBooks.iterator();
+        while(iter.hasNext()){
+            Book book = (Book)iter.next();
+            int bookCatalogueNumber = book.getCatalogueNumber();
+            if(CatalogueNumber == bookCatalogueNumber){
+                
+            }
+        }
+        
+    }
     public void ReturnOneBook(){}
 }
