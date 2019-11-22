@@ -10,6 +10,7 @@ public class Library
     private String name; // 도서관은 하나의 이름을 가진다.
     private TreeSet<Book> registeredBooks;
     private HashSet<Borrower> registeredBorrowers;
+    private HashSet<Loan> loan;
     public Library(String name){
         this.name = name;
         registeredBorrowers = new HashSet<Borrower>();
@@ -36,10 +37,10 @@ public class Library
             Book book = (Book)iterbook.next();
             int bookCatalogueNumber = book.getCatalogueNumber();
             if(CatalogueNumber == bookCatalogueNumber){
-                Iterator iterborrower = registeredBorrowers.iterator();
-
+                book.attach
             }
         }
+        
     }
 
     public void ReturnOneBook(){}

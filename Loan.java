@@ -9,8 +9,6 @@ public class Loan
 {
     private Borrower borrower;
     private Book book;
-    public Loan(Book book, Borrower borrower){
-        this.borrower = borrower;
-        this.book = book;
+    public Loan(){
     }
 }
