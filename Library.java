@@ -37,13 +37,7 @@ public class Library
             int bookCatalogueNumber = book.getCatalogueNumber();
             if(CatalogueNumber == bookCatalogueNumber){
                 Iterator iterborrower = registeredBorrowers.iterator();
-                while(iterborrower.hasNext()){
-                    Borrower borrower = (Borrower)iterborrower.next();
-                    String borrowername = borrower.getName();
-                    if(Name.equals(borrowername)){
-                        Loan loan = new Loan(book, borrower);
-                    }
-                }
+
             }
         }
     }
