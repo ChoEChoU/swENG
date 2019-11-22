@@ -9,8 +9,15 @@ public class Loan
 {
     private Borrower borrower;
     private Book book;
-    public Loan(Book book, Borrower borrower){
-        this.borrower = borrower;
+    public Loan(){
+       
+    }
+    
+    public void setBook(Book book){
         this.book = book;
+    }
+        
+    public void setBorrower(Borrower borrower){
+        this.borrower = borrower;
     }
 }

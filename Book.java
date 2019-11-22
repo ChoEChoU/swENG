@@ -19,4 +19,8 @@ public class Book
     public int getCatalogueNumber(){
         return this.CatalougeNumber;
     }
+    public void attachLoan(){
+        Loan loan = new Loan();
+        loan.setBook(this);
+    }    
 }
