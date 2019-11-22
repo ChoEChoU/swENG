@@ -1,4 +1,3 @@
-
 /**
  * 여기에 Borrower 클래스 설명을 작성하십시오.
  * 
@@ -8,7 +7,6 @@
 public class Borrower
 {
     private String name;
-    
     public Borrower(String name){
         this.name = name;
     }
@@ -16,6 +14,7 @@ public class Borrower
     public String getName(){
         return this.name;
     }
+    
     public void attachLoan(){
         
     }

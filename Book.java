@@ -1,4 +1,4 @@
-import java.util.HashSet;
+
 /**
  * Write a description of class Book here.
  *
@@ -10,7 +10,6 @@ public class Book
     private int CatalougeNumber;
     private String author;
     private String title;
-    
     public Book(int CatalogueNumber, String title, String author)
     {
         this.CatalougeNumber = CatalougeNumber;
@@ -20,9 +19,8 @@ public class Book
     public int getCatalogueNumber(){
         return this.CatalougeNumber;
     }
-    public Loan attachLoan(){
+    public void attachLoan(){
         Loan loan = new Loan();
-        //loan.setBook(this);
-        return loan;
-    }
+        loan.setBook(this);
+    }    
 }
