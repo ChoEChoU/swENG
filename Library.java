@@ -27,10 +27,23 @@ public class Library
     }
 
     public void displayBooksForLoan(){
-        //
+        Iterator iterBook = registeredBooks.iterator();
+        while(iterBook.hasNext()){
+            Book nextBook = (Book)iterBook.next();
+            Iterator iterLoan = loans.iterator();
+            while(iterLoan.hasNext()){
+                Loan nextLoan = (Loan)iterLoan.next();
+                if(nextLoan.getBook().equals(nextBook)){
+                }
+                else
+                    nextBook.display();
+            }
+        }
     }
 
-    public void displayBooksOnLoan(){}
+    public void displayBooksOnLoan(){
+
+    }
 
     public void LendOneBook(int CatalogueNumber,String Name)
     {
@@ -46,9 +59,9 @@ public class Library
                     String borrowerName = nextBorrower.getName();
                     if(Name == borrowerName){
                         Borrower borrower = nextBorrower;
-                        
+
                         Loan loan = new Loan();
-                        
+
                         book.attachLoan(loan);
                         borrower.attachLoan(loan);
                         loans.add(loan);

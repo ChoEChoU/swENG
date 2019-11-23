@@ -21,5 +21,8 @@ public class Book
     }
     public void attachLoan(Loan loan){
         loan.setBook(this);
-    }    
+    }
+    public void display(){
+        this.toString();
+    }
 }
