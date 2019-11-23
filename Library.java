@@ -17,7 +17,6 @@ public class Library
     }
 
     public void registerOneBorrower(String name){ // 동명이인을 확인한다, new borrower(name)
-        Borrower borrower = new Borrower(name);
         Iterator iterBorrower = registeredBorrowers.iterator();
         while (iterBorrower.hasNext()){
             Borrower nextBorrower = (Borrower)iterBorrower.next();
@@ -25,14 +24,24 @@ public class Library
                 System.out.println("이미 등록되있는 이용자입니다.");
             }
             else {
+                Borrower borrower = new Borrower(name);
                 registeredBorrowers.add(borrower);
             }
         }
     }
 
     public void registerOneBook(int CatalogueNumber, String title, String author){
-        Book book = new Book(CatalogueNumber,title,author);
-        registeredBooks.add(book);
+        Iterator iterBook = registeredBooks.iterator();
+        while (iterBook.hasNext()){
+            Book nextBook = (Book)iterBook.next();
+            if(nextBook.getCatalogueNumber() == CatalogueNumber){
+                System.out.println("이미 등록되있는 책입니다.");
+            }
+            else {
+                Book book = new Book(CatalogueNumber,title,author);
+                registeredBooks.add(book);
+            }
+        }
     }
 
     public void displayBooksForLoan(){
@@ -44,8 +53,9 @@ public class Library
                 Loan nextLoan = (Loan)iterLoan.next();
                 if(nextLoan.getBook().equals(nextBook)){
                 }
-                else
+                else{
                     nextBook.display();
+                }
             }
         }
     }
@@ -83,6 +93,7 @@ public class Library
 
                         book.attachLoan(loan);
                         borrower.attachLoan(loan);
+                        
                         loans.add(loan);
                     }
                 }
