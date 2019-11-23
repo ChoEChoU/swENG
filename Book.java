@@ -3,7 +3,7 @@
  * Write a description of class Book here.
  *
  * @author (your name)
- * @version (a version number or a date)
+ * @version (Iteration#1)
  */
 public class Book
 {
