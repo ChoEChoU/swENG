@@ -13,6 +13,7 @@ public class Library
     private HashSet<Loan> loans;
     public Library(String name){
         this.name = name;
+        registeredBooks = new TreeSet<Book>();
         registeredBorrowers = new HashSet<Borrower>();
     }
 
