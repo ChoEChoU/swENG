@@ -42,7 +42,17 @@ public class Library
     }
 
     public void displayBooksOnLoan(){
-
+        Iterator iterBook = registeredBooks.iterator();
+        while(iterBook.hasNext()){
+            Book nextBook = (Book)iterBook.next();
+            Iterator iterLoan = loans.iterator();
+            while(iterLoan.hasNext()){
+                Loan nextLoan = (Loan)iterLoan.next();
+                if(nextLoan.getBook().equals(nextBook)){
+                    nextBook.display();
+                }
+            }
+        }
     }
 
     public void LendOneBook(int CatalogueNumber,String Name)
