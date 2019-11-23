@@ -111,8 +111,8 @@ public class Library
                 if(nextBook.getCatalogueNumber()==CaltalogueNumber){
                     Book book = nextBook;
                     if(book.equals(nextLoan.getBook())){
-                        nextLoan.setBook(null);
-                        nextLoan.setBorrower(null);
+                        book.detachLoan(nextLoan);
+                        nextLoan.getBorrower().detachLoan(nextLoan);
                     }
                 }
             }

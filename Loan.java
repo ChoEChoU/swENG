@@ -23,4 +23,8 @@ public class Loan
     public Book getBook(){
         return this.book;
     }
+    
+    public Borrower getBorrower(){
+        return this.borrower;
+    }
 }

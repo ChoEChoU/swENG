@@ -18,4 +18,8 @@ public class Borrower
     public void attachLoan(Loan loan){
         loan.setBorrower(this);
     }
+    
+    public void detachLoan(Loan loan){
+        loan.setBorrower(null);
+    }
 }

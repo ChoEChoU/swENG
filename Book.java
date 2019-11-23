@@ -22,6 +22,9 @@ public class Book
     public void attachLoan(Loan loan){
         loan.setBook(this);
     }
+    public void detachLoan(Loan loan){
+        loan.setBook(null);
+    }
     public void display(){
         this.toString();
     }
