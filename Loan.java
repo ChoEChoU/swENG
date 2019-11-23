@@ -19,4 +19,8 @@ public class Loan
     public void setBorrower(Borrower borrower){
         this.borrower = borrower;
     }
+    
+    public Book getBook(){
+        return this.book;
+    }
 }
