@@ -15,7 +15,7 @@ public class Borrower
         return this.name;
     }
     
-    public void attachLoan(){
-        
+    public void attachLoan(Loan loan){
+        loan.setBorrower(this);
     }
 }

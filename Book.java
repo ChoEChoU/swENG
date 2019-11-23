@@ -19,8 +19,7 @@ public class Book
     public int getCatalogueNumber(){
         return this.CatalougeNumber;
     }
-    public void attachLoan(){
-        Loan loan = new Loan();
+    public void attachLoan(Loan loan){
         loan.setBook(this);
     }    
 }

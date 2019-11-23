@@ -26,38 +26,35 @@ public class Library
         registeredBooks.add(book);
     }
 
-    public void displayBooksForLoan(){}
+    public void displayBooksForLoan(){
+        //
+    }
 
     public void displayBooksOnLoan(){}
 
     public void LendOneBook(int CatalogueNumber,String Name)
     {
-        Book book;
-        Borrower borrower;
-        Iterator iterbook = registeredBooks.iterator();
-        
-        while(iterbook.hasNext()){
-            Book nextBook = (Book)iterbook.next();
+        Iterator iterBook = registeredBooks.iterator();
+        while(iterBook.hasNext()){
+            Book nextBook = (Book)iterBook.next();
             int bookCatalogueNumber = nextBook.getCatalogueNumber();
             if(CatalogueNumber == bookCatalogueNumber){
-                //Iterator iterborrower = registeredBorrowers.iterator();
-                book = nextBook;
+                Book book = nextBook;
+                Iterator iterBorrower = registeredBorrowers.iterator();
+                while (iterBorrower.hasNext()){
+                    Borrower nextBorrower = (Borrower)iterBorrower.next();
+                    String borrowerName = nextBorrower.getName();
+                    if(Name == borrowerName){
+                        Borrower borrower = nextBorrower;
+                        
+                        Loan loan = new Loan();
+                        
+                        book.attachLoan(loan);
+                        borrower.attachLoan(loan);
+                    }
+                }
             }
         }
-
-        Iterator iterBorrower = registeredBorrowers.iterator();
-        while (iterBorrower.hasNext()){
-            Borrower nextBorrower = (Borrower)iterBorrower.next();
-            String borrowerName = nextBorrower.getName();
-            if(Name == borrowerName){
-                //Iterator iterborrower = registeredBorrowers.iterator();
-                borrower = nextBorrower;
-            }
-        }
-        
-        
-        
-        
     }
 
     public void ReturnOneBook(){}
