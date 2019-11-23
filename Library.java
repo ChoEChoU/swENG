@@ -18,7 +18,16 @@ public class Library
 
     public void registerOneBorrower(String name){ // 동명이인을 확인한다, new borrower(name)
         Borrower borrower = new Borrower(name);
-        registeredBorrowers.add(borrower);
+        Iterator iterBorrower = registeredBorrowers.iterator();
+        while (iterBorrower.hasNext()){
+            Borrower nextBorrower = (Borrower)iterBorrower.next();
+            if (nextBorrower.getName() == name){
+                System.out.println("이미 등록되있는 이용자입니다.");
+            }
+            else {
+                registeredBorrowers.add(borrower);
+            }
+        }
     }
 
     public void registerOneBook(int CatalogueNumber, String title, String author){
