@@ -10,54 +10,45 @@ public class Library
     private String name; // 도서관은 하나의 이름을 가진다.
     private TreeSet<Book> registeredBooks;
     private HashSet<Borrower> registeredBorrowers;
-    private HashSet<Loan> loans;
+    private HashMap<Integer, Loan> loans;
 
     public Library(String name){
         this.name = name;
         registeredBooks = new TreeSet<Book>();
         registeredBorrowers = new HashSet<Borrower>();
+        loans = new HashMap<Integer, Loan>();
     }
 
-    public void registerOneBorrower(String name){ // 동명이인을 확인한다, new borrower(name)
-        Iterator iterBorrower = registeredBorrowers.iterator();
-        while (iterBorrower.hasNext()){
-            Borrower nextBorrower = (Borrower)iterBorrower.next();
-            if (nextBorrower.getName() == name){
-                System.out.println("이미 등록되있는 이용자입니다.");
-            }
-            else {
-                Borrower borrower = new Borrower(name);
-                registeredBorrowers.add(borrower);
-            }
+    public void registerOneBorrower(String Name){ // 동명이인을 확인한다, new borrower(name)
+        Borrower newborrower = new Borrower(Name);
+        if(registeredBorrowers.contains(newborrower)) {
+            System.out.println("이미 등록되있는 이용자입니다.");
+            newborrower = null;
+        }
+        else {
+            registeredBorrowers.add(newborrower);
+            System.out.println("새로운 이용자를 등록했습니다.");
         }
     }
 
     public void registerOneBook(int CatalogueNumber, String title, String author){
-        Iterator iterBook = registeredBooks.iterator();
-        while (iterBook.hasNext()){
-            Book nextBook = (Book)iterBook.next();
-            if(nextBook.getCatalogueNumber() == CatalogueNumber){
-                System.out.println("이미 등록되있는 책입니다.");
-            }
-            else {
-                Book book = new Book(CatalogueNumber,title,author);
-                registeredBooks.add(book);
-            }
+        Book newbook = new Book(CatalogueNumber, title, author);
+        if (registeredBooks.contains(newbook)){
+            System.out.println("이미 등록된 책입니다.");
+            newbook = null;
+        }
+        else{
+            registeredBooks.add(newbook);
+            System.out.println("새로운 책을 등록했습니다.");
         }
     }
 
     public void displayBooksForLoan(){
         Iterator iterBook = registeredBooks.iterator();
         while(iterBook.hasNext()){
-            Book nextBook = (Book)iterBook.next();
-            Iterator iterLoan = loans.iterator();
-            while(iterLoan.hasNext()){
-                Loan nextLoan = (Loan)iterLoan.next();
-                if(nextLoan.getBook().equals(nextBook)){
-                }
-                else{
-                    nextBook.display();
-                }
+            Book bookForLoan = (Book)iterBook.next();
+            if(bookForLoan.getLoan() == null){
+                System.out.println(bookForLoan.toString());
             }
         }
     }
@@ -65,13 +56,9 @@ public class Library
     public void displayBooksOnLoan(){
         Iterator iterBook = registeredBooks.iterator();
         while(iterBook.hasNext()){
-            Book nextBook = (Book)iterBook.next();
-            Iterator iterLoan = loans.iterator();
-            while(iterLoan.hasNext()){
-                Loan nextLoan = (Loan)iterLoan.next();
-                if(nextLoan.getBook().equals(nextBook)){
-                    nextBook.display();
-                }
+            Book bookOnLoan = (Book)iterBook.next();
+            if (bookOnLoan.getLoan() != null){
+                System.out.println(bookOnLoan.toString());
             }
         }
     }
@@ -80,44 +67,34 @@ public class Library
     {
         Iterator iterBook = registeredBooks.iterator();
         while(iterBook.hasNext()){
-            Book nextBook = (Book)iterBook.next();
-            int bookCatalogueNumber = nextBook.getCatalogueNumber();
-            if(CatalogueNumber == bookCatalogueNumber){
-                Book book = nextBook;
+            Book book = (Book)iterBook.next();
+            if(book.getCatalogueNumber() == CatalogueNumber && loans.get(CatalogueNumber) == null){
                 Iterator iterBorrower = registeredBorrowers.iterator();
                 while (iterBorrower.hasNext()){
-                    Borrower nextBorrower = (Borrower)iterBorrower.next();
-                    String borrowerName = nextBorrower.getName();
-                    if(Name == borrowerName){
-                        Borrower borrower = nextBorrower;
-
+                    Borrower borrower = (Borrower)iterBorrower.next();
+                    if(borrower.getName() == Name){
                         Loan loan = new Loan();
 
                         book.attachLoan(loan);
                         borrower.attachLoan(loan);
 
-                        loans.add(loan);
+                        loans.put(CatalogueNumber, loan);
                     }
                 }
             }
         }
     }
 
-    public void ReturnOneBook(int CaltalogueNumber){
-        Iterator iterLoan = loans.iterator();
-        while(iterLoan.hasNext()){
-            Loan nextLoan = (Loan)iterLoan.next();
-            Iterator iterBook =  registeredBooks.iterator();
-            while(iterBook.hasNext()){
-                Book nextBook = (Book)iterBook.next();
-                if(nextBook.getCatalogueNumber()==CaltalogueNumber){
-                    Book book = nextBook;
-                    if(book.equals(nextLoan.getBook())){
-                        book.detachLoan(nextLoan);
-                        nextLoan.getBorrower().detachLoan(nextLoan);
-                    }
-                }
+    public void ReturnOneBook(int CatalogueNumber){
+        Iterator iterBook = registeredBooks.iterator();
+        while(iterBook.hasNext()){
+            Book book = (Book) iterBook.next();
+            if(book.getCatalogueNumber() == CatalogueNumber){
+                Loan loan = loans.get(CatalogueNumber);
+                loan.getBook().detach(loan);
+                loan.getBorrower().detach(loan);
+                loans.remove(CatalogueNumber);
             }
-        }       
+        }
     }
 }

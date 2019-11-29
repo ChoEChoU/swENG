@@ -10,6 +10,7 @@ public class Book
     private int CatalougeNumber;
     private String author;
     private String title;
+    private Loan loan = null;
     public Book(int CatalogueNumber, String title, String author)
     {
         this.CatalougeNumber = CatalougeNumber;
@@ -23,10 +24,12 @@ public class Book
 
     public void attachLoan(Loan loan){
         loan.setBook(this);//loan객체에 book을 배당
+        this.loan = loan;
     }
 
     public void detachLoan(Loan loan){
         loan.setBook(null);//loan객체에 book을 배당해제
+        this.loan = null;
     }
 
     public void display(){
