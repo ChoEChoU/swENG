@@ -10,6 +10,8 @@ public class Book
     private int CatalougeNumber;
     private String author;
     private String title;
+    private Loan loan;
+    
     public Book(int CatalogueNumber, String title, String author)
     {
         this.CatalougeNumber = CatalougeNumber;
@@ -17,19 +19,36 @@ public class Book
         this.title = title;
     }
 
-    public int getCatalogueNumber(){
+    public int getCatalougeNumber(){
         return this.CatalougeNumber;
     }
 
     public void attachLoan(Loan loan){
-        loan.setBook(this);//loan객체에 book을 배당
+        loan.attachBook(this);//loan객체에 book을 배당
     }
 
     public void detachLoan(Loan loan){
-        loan.setBook(null);//loan객체에 book을 배당해제
+        loan.attachBook(null);//loan객체에 book을 배당해제
+        this.loan = loan; 
     }
 
-    public void display(){
-        this.toString(); //대출 중 or 대출가능 책들을 보여주기 위한 메소드
+    public int compareTO(Book book){
+        if (book.getCatalougeNumber() == this.CatalougeNumber){
+            return 0;
+        }
+        else if(this.CatalougeNumber > book.getCatalougeNumber()){
+            return 1;
+        }
+        else{
+            return -1;
+        }
+    }
+    
+    public Loan getloan(){
+        return loan;
+    }
+    
+    public String toString(){
+        return CatalougeNumber + title + author;
     }
 }
