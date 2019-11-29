@@ -8,13 +8,16 @@ public class Loan
 {
     private Borrower borrower;
     private Book book;    
-    public Loan(){}
+    
+    public Loan(){
+    }
  
-    public void setBook(Book book){
+    
+    public void attachBook(Book book){
         this.book = book;
     }
 
-    public void setBorrower(Borrower borrower){
+    public void attachBorrower(Borrower borrower){
         this.borrower = borrower;
     }
 

@@ -68,7 +68,7 @@ public class Library
         Iterator iterBook = registeredBooks.iterator();
         while(iterBook.hasNext()){
             Book book = (Book)iterBook.next();
-            if(book.getCatalogueNumber() == CatalogueNumber && loans.get(CatalogueNumber) == null){
+            if(book.getCatalougeNumber() == CatalogueNumber && loans.get(CatalogueNumber) == null){
                 Iterator iterBorrower = registeredBorrowers.iterator();
                 while (iterBorrower.hasNext()){
                     Borrower borrower = (Borrower)iterBorrower.next();
@@ -89,10 +89,10 @@ public class Library
         Iterator iterBook = registeredBooks.iterator();
         while(iterBook.hasNext()){
             Book book = (Book) iterBook.next();
-            if(book.getCatalogueNumber() == CatalogueNumber){
+            if(book.getCatalougeNumber() == CatalogueNumber){
                 Loan loan = loans.get(CatalogueNumber);
-                loan.getBook().detach(loan);
-                loan.getBorrower().detach(loan);
+                loan.getBook().detachLoan(loan);
+                loan.getBorrower().detachLoan(loan);
                 loans.remove(CatalogueNumber);
             }
         }
