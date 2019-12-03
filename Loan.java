@@ -1,3 +1,5 @@
+import java.util.*;
+import java.text.*;
 /**
  * 여기에 Loan 클래스 설명을 작성하십시오.
  * 
@@ -8,11 +10,14 @@ public class Loan
 {
     private Borrower borrower;
     private Book book;    
+    private String LendDate;
+    private String ReturnDate;
     
     public Loan(){
+        this.LendDate = lendDate();
+        this.ReturnDate = returnDate();
     }
- 
-    
+
     public void attachBook(Book book){
         this.book = book;
     }
@@ -26,6 +31,28 @@ public class Loan
     }
 
     public Borrower getBorrower(){
-        return this.borrower;
+        return borrower;
+        //this.borrower??
+    }
+
+    public void detachBook() {
+        this.book = null;
+    }
+
+    public void detachBorrower() {
+        this.borrower = null;
+    }
+
+    public String returnDate(){
+        Calendar calendar = Calendar.getInstance();
+        calendar.add(Calendar.DAY_OF_MONTH, +14); // 대출 기간을 14일로 설정
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd"); //날짜 포맷 설정
+        Date time = calendar.getTime();
+        String returnDate = format.format(time);
+        return returnDate;
+    }
+
+    public String lendDate(){
+        return null;
     }
 }
