@@ -59,25 +59,19 @@ public class Library
         }
     }
 
-    public void LendOneBook(int CatalogueNumber,String Name)
+    public String LendOneBook(int CatalogueNumber,String Name)
     {
-        Iterator iterBook = registeredBooks.iterator();
-        while(iterBook.hasNext()){
-            Book book = (Book)iterBook.next();
-            if(book.getCatalougeNumber() == CatalogueNumber && loans.get(CatalogueNumber) == null){
-                Iterator iterBorrower = registeredBorrowers.iterator();
-                while (iterBorrower.hasNext()){
-                    Borrower borrower = (Borrower)iterBorrower.next();
-                    if(borrower.getName() == Name){
-                        Loan loan = new Loan();
-
-                        book.attachLoan(loan);
-                        borrower.attachLoan(loan);
-
-                        loans.put(CatalogueNumber, loan);
-                    }
-                }
+        Book findedBook = findBook(CatalogueNumber);
+        if (findedBook != null) {
+            if (findedBook.checkLoan() == false) {
+                Borrower findedBorrower = findBorrower(Name);
+                Loan loan = new Loan();
+                findedBook.attachLoan(loan);
+                findedBorrower.attachLoan(loan);
+                loans.put(CatalogueNumber, loan);
+                return "대출이 완료되었습니다." + " 반납일은 " + loan.returnDate() + " 입니다."; 
             }
+            return "대출에 실패하였습니다.";
         }
     }
 
