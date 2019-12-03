@@ -7,20 +7,20 @@
  */
 public class Book implements Comparable<Book>
 {
-    private int CatalougeNumber;
+    private int CatalogueNumber;
     private String author;
     private String title;
     private Loan loan = null;
 
     public Book(int CatalogueNumber, String title, String author)
     {
-        this.CatalougeNumber = CatalougeNumber;
+        this.CatalogueNumber = CatalogueNumber;
         this.author = author;
         this.title = title;
     }
 
-    public int getCatalougeNumber(){
-        return this.CatalougeNumber;
+    public int getCatalogueNumber(){
+        return this.CatalogueNumber;
     }
 
     public void attachLoan(Loan loan){
@@ -34,10 +34,10 @@ public class Book implements Comparable<Book>
     }
 
     public int compareTo(Book book){
-        if (book.getCatalougeNumber() == this.CatalougeNumber){
+        if (book.getCatalogueNumber() == this.CatalogueNumber){
             return 0;
         }
-        else if(this.CatalougeNumber > book.getCatalougeNumber()){
+        else if(this.CatalogueNumber > book.getCatalogueNumber()){
             return 1;
         }
         else{
@@ -56,6 +56,6 @@ public class Book implements Comparable<Book>
     }
     
     public String toString(){
-        return " 카탈로그번호 "+CatalougeNumber+" 제목: "+ title+" 저자" + author;
+        return " 카탈로그번호 "+CatalogueNumber+" 제목: "+ title+" 저자" + author;
     }
 }

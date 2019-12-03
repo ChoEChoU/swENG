@@ -106,7 +106,7 @@ public class Library
         Book book = null;
         while(iterBook.hasNext()){
             Book nextBook = (Book)iterBook.next();
-            if(nextBook.getCatalougeNumber() == CatalogueNumber){
+            if(nextBook.getCatalogueNumber() == CatalogueNumber){
                 book = nextBook;
             }
         }
