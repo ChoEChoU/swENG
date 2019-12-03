@@ -56,6 +56,6 @@ public class Book implements Comparable<Book>
     }
     
     public String toString(){
-        return " 카탈로그번호 "+CatalogueNumber+" 제목: "+ title+" 저자" + author;
+        return " 카탈로그번호: "+CatalogueNumber+" 제목: "+ title+" 저자" + author + "\n" ;
     }
 }

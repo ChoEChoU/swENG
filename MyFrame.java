@@ -117,11 +117,11 @@ public class MyFrame extends JFrame implements ActionListener
             secondpanel.removeAll(); 
             secondpanel.repaint();
             secondpanel.setLayout(new GridLayout(1,1));
-            JTextArea ta_on = new JTextArea();
-            ta_on.setText(lib.displayBooksOnLoan());
-            JScrollPane scroll_on = new JScrollPane(ta_on);
+            JTextArea ta_for = new JTextArea();
+            ta_for.setText(lib.displayBooksForLoan());
+            JScrollPane scroll_on = new JScrollPane(ta_for);
             secondpanel.add(scroll_on);
-            ta_on.setEnabled(false);
+            ta_for.setEnabled(false);
             secondpanel.revalidate(); 
         }
         else if(btn.getText().equals("대출 중인 책 조회")){
@@ -129,11 +129,11 @@ public class MyFrame extends JFrame implements ActionListener
             secondpanel.removeAll(); 
             secondpanel.repaint();
             secondpanel.setLayout(new GridLayout(1,1));
-            JTextArea ta_for = new JTextArea();
-            ta_for.setText(lib.displayBooksForLoan());
-            JScrollPane scroll_for = new JScrollPane(ta_for);
-            secondpanel.add(scroll_for);
-            ta_for.setEnabled(false);
+            JTextArea ta_on = new JTextArea();
+            ta_on.setText(lib.displayBooksOnLoan());
+            JScrollPane scroll_on = new JScrollPane(ta_on);
+            secondpanel.add(scroll_on);
+            ta_on.setEnabled(false);
             secondpanel.revalidate(); 
         }
     }
@@ -209,7 +209,7 @@ public class MyFrame extends JFrame implements ActionListener
                         secondpanel.add(new JLabel("반납이 완료되었습니다"));
                     }
                     else {
-                        secondpanel.add(new JLabel("해당 대출을 없습니다"));
+                        secondpanel.add(new JLabel("해당 대출을 찾을 수 없습니다"));
                     }
                     secondpanel.revalidate();
                 }
