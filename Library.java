@@ -19,8 +19,14 @@ public class Library
         loans = new HashMap<Integer, Loan>();
     }
 
-    public void registerOneBorrower(String Name){ // 동명이인을 확인한다, new borrower(name)
+    public Boolean registerOneBorrower(String Name){ // 동명이인을 확인한다, new borrower(name)
         Borrower findedBorrower = findBorrower(Name);
+        if (findedBorrower == null) {
+            Borrower newBorrower = new Borrower(Name);
+            registeredBorrowers.add(newBorrower);
+            return true;
+        }
+        return false;
     }
 
     public Boolean registerOneBook(int CatalogueNumber, String title, String author){
