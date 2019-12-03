@@ -57,7 +57,8 @@ public class MyFrame extends JFrame implements ActionListener
             num_lend = new JTextField();
             secondpanel.add(num_lend);
             JButton lendOneBook = new JButton("대출하기");
-            secondpanel.add(lendOneBook);        
+            secondpanel.add(lendOneBook);  
+            lendOneBook.addActionListener(new MyListener());
             this.add(secondpanel,BorderLayout.CENTER);
             secondpanel.revalidate(); 
         }
@@ -70,6 +71,7 @@ public class MyFrame extends JFrame implements ActionListener
             secondpanel.add(num_return);
             JButton returnOneBook = new JButton("반납하기");
             secondpanel.add(returnOneBook);
+            returnOneBook.addActionListener(new MyListener());
             this.add(secondpanel,BorderLayout.CENTER);
             secondpanel.revalidate(); 
         }
@@ -88,6 +90,7 @@ public class MyFrame extends JFrame implements ActionListener
             secondpanel.add(author_newbook);
             JButton registerOneBook = new JButton("도서 등록하기");
             secondpanel.add(registerOneBook);
+            registerOneBook.addActionListener(new MyListener());
             this.add(secondpanel,BorderLayout.CENTER);
             secondpanel.revalidate(); 
         }
@@ -100,6 +103,7 @@ public class MyFrame extends JFrame implements ActionListener
             secondpanel.add(name_newborrower);
             JButton registerOneBorrower = new JButton("이용자 등록하기");
             secondpanel.add(registerOneBorrower);
+            registerOneBorrower.addActionListener(new MyListener());
             this.add(secondpanel,BorderLayout.CENTER);
             secondpanel.revalidate(); 
         }
@@ -130,7 +134,11 @@ public class MyFrame extends JFrame implements ActionListener
         public void actionPerformed(ActionEvent e){
             JButton bt = (JButton)e.getSource();
             if (bt.getText() == "도서 등록하기"){
-                if (title_newbook.getText().equals("")){
+                if(num_newbook.getText().equals("")) {
+                    secondpanel.add(new JLabel("번호를 입력하세요"));
+                    secondpanel.revalidate(); 
+                }
+                else if (title_newbook.getText().equals("")){
                     secondpanel.add(new JLabel("제목을 입력하세요"));
                     secondpanel.revalidate(); 
                 }
@@ -138,10 +146,7 @@ public class MyFrame extends JFrame implements ActionListener
                     secondpanel.add(new JLabel("저자를 입력하세요"));
                     secondpanel.revalidate(); 
                 }				
-                else if(num_newbook.getText().equals("")) {
-                    secondpanel.add(new JLabel("번호를 입력하세요"));
-                    secondpanel.revalidate(); 
-                }
+
                 else {
                     //도서 등록 성공 시 
                 }
