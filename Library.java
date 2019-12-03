@@ -19,10 +19,10 @@ public class Library
         loans = new HashMap<Integer, Loan>();
     }
 
-    public Boolean registerOneBorrower(String Name){ // 동명이인을 확인한다, new borrower(name)
-        Borrower findedBorrower = findBorrower(Name);
+    public Boolean registerOneBorrower(String name){ // 동명이인을 확인한다, new borrower(name)
+        Borrower findedBorrower = findBorrower(name);
         if (findedBorrower == null) {
-            Borrower newBorrower = new Borrower(Name);
+            Borrower newBorrower = new Borrower(name);
             registeredBorrowers.add(newBorrower);
             return true;
         }
@@ -61,12 +61,12 @@ public class Library
         }
     }
 
-    public String LendOneBook(int CatalogueNumber,String Name)
+    public String LendOneBook(int CatalogueNumber,String name)
     {
         Book findedBook = findBook(CatalogueNumber);
         if (findedBook != null) {
             if (findedBook.checkLoan() == false) {
-                Borrower findedBorrower = findBorrower(Name);
+                Borrower findedBorrower = findBorrower(name);
                 Loan loan = new Loan();
                 findedBook.attachLoan(loan);
                 findedBorrower.attachLoan(loan);
