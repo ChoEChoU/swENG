@@ -11,10 +11,10 @@ import java.util.*;
 public class Library
 {
     private String name; // 도서관은 하나의 이름을 가진다.
-    private TreeSet<Book> registeredBooks; 
+    private TreeSet<Book> registeredBooks = new TreeSet<Book>();
     //도서의 카달로그 번호를 오름차순으로 정렬하기위해 TreeSet을 이용한다.
-    private HashSet<Borrower> registeredBorrowers;
-    private HashMap<Integer, Loan> loans;
+    private HashSet<Borrower> registeredBorrowers = new HashSet<Borrower>();;
+    private HashMap<Integer, Loan> loans  = new HashMap<Integer, Loan>();
     //도서의 카달로그 번호(Integer) 를 키 값으로 하여 대출객체(loan)을 쉽게 찾는다.
 
     public Library(String name){

@@ -153,7 +153,7 @@ public class MyFrame extends JFrame implements ActionListener
                 else if(author_newbook.getText().equals("")) {
                     secondpanel.add(new JLabel("대출하려는 도서의 저자를 입력하세요"));
                     secondpanel.revalidate(); 
-                }				
+                }               
 
                 else {
                     int Num = Integer.parseInt(num_newbook.getText());
@@ -190,7 +190,7 @@ public class MyFrame extends JFrame implements ActionListener
                 }
                 else if(num_lend.getText().equals("")) {
                     secondpanel.add(new JLabel("대출하려는 도서의 카달로그 번호를 입력하세요"));
-                    secondpanel.revalidate(); 					
+                    secondpanel.revalidate();                   
                 }
                 else{
                     int n = Integer.parseInt(num_lend.getText());

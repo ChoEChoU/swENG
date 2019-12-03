@@ -23,5 +23,6 @@ public class Borrower
 
     public void detachLoan(Loan loan){
         loan.detachBorrower();//대출 객체에서 해당 이용자를 배당 해제
+        this.loan = null;
     }
 }

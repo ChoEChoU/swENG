@@ -29,7 +29,7 @@ public class Loan
     }
 
     public Book getBook(){
-        return this.book;
+        return book;
     }
 
     public Borrower getBorrower(){
