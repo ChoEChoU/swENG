@@ -10,12 +10,12 @@ public class Loan
 {
     private Borrower borrower;
     private Book book;    
-    private String LendDate;
-    private String ReturnDate;
+    private String lendDate;
+    private String returnDate;
 
     public Loan(){
-        this.LendDate = lendDate();
-        this.ReturnDate = returnDate();
+        this.lendDate = lendDate();
+        this.returnDate = returnDate();
     }
 
     public void attachBook(Book book){
@@ -57,5 +57,9 @@ public class Loan
         Date time = new Date();
         String lendDate = format.format(time);
         return lendDate;
+    }
+    
+    public String getReturnDate() {
+        return this.returnDate;
     }
 }

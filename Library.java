@@ -71,7 +71,7 @@ public class Library
                 findedBook.attachLoan(loan);
                 findedBorrower.attachLoan(loan);
                 loans.put(CatalogueNumber, loan);
-                return "대출이 완료되었습니다." + " 반납일은 " + loan.returnDate() + " 입니다."; 
+                return "대출이 완료되었습니다." + " 반납일은 " + loan.getReturnDate() + " 입니다."; 
             }
             return "대출에 실패하였습니다.";
         }
