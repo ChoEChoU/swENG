@@ -9,6 +9,10 @@ import javax.swing.*;
  */
 public class MyFrame extends JFrame implements ActionListener 
 {
+    JPanel secondpanel = new JPanel();
+    JTextField name_lend;
+    JTextField num_lend;
+    JTextField num_return;
     public MyFrame(){
         this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -38,17 +42,37 @@ public class MyFrame extends JFrame implements ActionListener
 
     public void actionPerformed(ActionEvent e){
         JButton btn = (JButton)e.getSource();
-        if(btn.getText() == "대출"){
+        if(btn.getText().equals("대출")){
+            secondpanel.removeAll();
+            secondpanel.repaint();
+            secondpanel.setLayout(new GridLayout(10,1));
+            secondpanel.add(new JLabel("이용자 이름"));
+            name_lend = new JTextField();
+            secondpanel.add(name_lend);
+            secondpanel.add(new JLabel("책의 카달로그 번호"));
+            name_lend = new JTextField();
+            secondpanel.add(num_lend);
+            JButton lendOneBook = new JButton("대출하기");
+            secondpanel.add(lendOneBook);        
+            this.add(secondpanel,BorderLayout.CENTER);
         }
-        else if(btn.getText() == "반납"){
+        else if(btn.getText().equals("반납")){
+            secondpanel.removeAll();
+            secondpanel.repaint();
+            secondpanel.setLayout(new GridLayout(10,1));
+            num_return = new JTextField();
+            secondpanel.add(num_return);
+            JButton returnOneBook = new JButton("반납하기");
+            secondpanel.add(returnOneBook);
+            this.add(secondpanel,BorderLayout.CENTER);
         }
-        else if(btn.getText() == "신규 도서 등록"){
+        else if(btn.getText().equals("신규 도서 등록")){
         }
-        else if(btn.getText() == "신규 이용자 등록"){
+        else if(btn.getText().equals("신규 이용자 등록")){
         }
-        else if(btn.getText() == "대출 가능한 책 조회"){
+        else if(btn.getText().equals("대출 가능한 책 조회")){
         }
-        else if(btn.getText() == "대출 중인 책 조회"){
+        else if(btn.getText().equals("대출 중인 책 조회")){
         }
     }
 }
