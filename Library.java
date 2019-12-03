@@ -31,16 +31,14 @@ public class Library
         }
     }
 
-    public void registerOneBook(int CatalogueNumber, String title, String author){
-        Book newbook = new Book(CatalogueNumber, title, author);
-        if (registeredBooks.contains(newbook)){
-            System.out.println("이미 등록된 책입니다.");
-            newbook = null;
-        }
-        else{
+    public Boolean registerOneBook(int CatalogueNumber, String title, String author){
+        Book findedBook = findBook(CatalogueNumber);
+        if(findedBook == null) {
+            Book newbook = new Book(CatalogueNumber, title, author);
             registeredBooks.add(newbook);
-            System.out.println("새로운 책을 등록했습니다.");
+            return true;
         }
+        return false;
     }
 
     public void displayBooksForLoan(){
@@ -96,5 +94,17 @@ public class Library
                 loans.remove(CatalogueNumber);
             }
         }
+    }
+    
+    public Book findBook(int CatalogueNumber){
+        Iterator iterBook = registeredBooks.iterator();
+        Book book = null;
+        while(iterBook.hasNext()){
+            Book nextBook = (Book)iterBook.next();
+            if(nextBook.getCatalougeNumber() == CatalogueNumber){
+                book = nextBook;
+            }
+        }
+        return book;
     }
 }
