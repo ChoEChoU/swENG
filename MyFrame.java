@@ -17,6 +17,7 @@ public class MyFrame extends JFrame implements ActionListener
     JTextField title_newbook;
     JTextField author_newbook;
     JTextField name_newborrower;
+    //Library lib = new Library("")
     public MyFrame(){
         this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -46,7 +47,8 @@ public class MyFrame extends JFrame implements ActionListener
 
     public void actionPerformed(ActionEvent e){
         JButton btn = (JButton)e.getSource();
-        if(btn.getText().equals("대출")){
+        //getSource를 통해 이벤트가 일어난 객체버튼 알아내기
+        if(btn.getText().equals("대출")){//초기화면에서 대출 선택시
             secondpanel.removeAll();
             secondpanel.repaint();
             secondpanel.setLayout(new GridLayout(10,1));
@@ -62,7 +64,7 @@ public class MyFrame extends JFrame implements ActionListener
             this.add(secondpanel,BorderLayout.CENTER);
             secondpanel.revalidate(); 
         }
-        else if(btn.getText().equals("반납")){
+        else if(btn.getText().equals("반납")){//초기화면에서 반납 선택시
             secondpanel.removeAll();
             secondpanel.repaint();
             secondpanel.setLayout(new GridLayout(10,1));
@@ -76,6 +78,7 @@ public class MyFrame extends JFrame implements ActionListener
             secondpanel.revalidate(); 
         }
         else if(btn.getText().equals("신규 도서 등록")){
+            //초기화면에서 신규 도서 등록 선택시
             secondpanel.removeAll();
             secondpanel.repaint();
             secondpanel.setLayout(new GridLayout(10,1));
@@ -95,6 +98,7 @@ public class MyFrame extends JFrame implements ActionListener
             secondpanel.revalidate(); 
         }
         else if(btn.getText().equals("신규 이용자 등록")){
+            //초기화면에서 신규 이용자 등록 선택시
             secondpanel.removeAll();
             secondpanel.repaint();
             secondpanel.setLayout(new GridLayout(10,1));
@@ -108,6 +112,7 @@ public class MyFrame extends JFrame implements ActionListener
             secondpanel.revalidate(); 
         }
         else if(btn.getText().equals("대출 가능한 책 조회")){
+            //초기화면에서 대출 가능한 책 조회 등록 선택시 
             secondpanel.removeAll(); 
             secondpanel.repaint();
             secondpanel.setLayout(new GridLayout(1,1));
@@ -119,6 +124,7 @@ public class MyFrame extends JFrame implements ActionListener
             secondpanel.revalidate(); 
         }
         else if(btn.getText().equals("대출 중인 책 조회")){
+            //초기화면에서 대출 중인 책 조회 선택시 
             secondpanel.removeAll(); 
             secondpanel.repaint();
             secondpanel.setLayout(new GridLayout(1,1));
@@ -133,17 +139,18 @@ public class MyFrame extends JFrame implements ActionListener
     class MyListener implements ActionListener{
         public void actionPerformed(ActionEvent e){
             JButton bt = (JButton)e.getSource();
-            if (bt.getText() == "도서 등록하기"){
+            //getSource를 통해 이벤트가 일어난 객체버튼 알아내기
+            if (bt.getText().equals("도서 등록하기")){
                 if(num_newbook.getText().equals("")) {
-                    secondpanel.add(new JLabel("번호를 입력하세요"));
+                    secondpanel.add(new JLabel("대출하려는 책의 카달로그 번호를 입력하세요"));
                     secondpanel.revalidate(); 
                 }
                 else if (title_newbook.getText().equals("")){
-                    secondpanel.add(new JLabel("제목을 입력하세요"));
+                    secondpanel.add(new JLabel("대출하려는 책의 제목을 입력하세요"));
                     secondpanel.revalidate(); 
                 }
                 else if(author_newbook.getText().equals("")) {
-                    secondpanel.add(new JLabel("저자를 입력하세요"));
+                    secondpanel.add(new JLabel("대출하려는 책의 저자를 입력하세요"));
                     secondpanel.revalidate(); 
                 }				
 
@@ -151,31 +158,31 @@ public class MyFrame extends JFrame implements ActionListener
                     //도서 등록 성공 시 
                 }
             }
-            else if (bt.getText() == "이용자 등록하기") {
+            else if (bt.getText().equals("이용자 등록하기")) {
                 if(name_newborrower.getText().equals("")) {
-                    secondpanel.add(new JLabel("이름을 입력하세요"));
+                    secondpanel.add(new JLabel("등록하려는 이용자 이름을 입력하세요"));
                     secondpanel.revalidate(); 
                 }
                 else {
                     //이용자 등록 성공시 
                 }
             }
-            else if (bt.getText() == "대출하기") {
+            else if (bt.getText().equals("대출하기")) {
                 if(name_lend.getText().equals("")) {
-                    secondpanel.add(new JLabel("이름을 입력하세요"));
+                    secondpanel.add(new JLabel("대출하려는 이용자의 이름을 입력하세요"));
                     secondpanel.revalidate(); 
                 }
                 else if(num_lend.getText().equals("")) {
-                    secondpanel.add(new JLabel("번호를 입력하세요"));
+                    secondpanel.add(new JLabel("대출하려는 책의 카달로그 번호를 입력하세요"));
                     secondpanel.revalidate(); 					
                 }
                 else{
                     //대출 성공
                 }
             }
-            else if (bt.getText() == "반납하기" ) {
+            else if (bt.getText().equals("반납하기") ) {
                 if(num_return.getText().equals("")) {
-                    secondpanel.add(new JLabel("번호를 입력하세요"));
+                    secondpanel.add(new JLabel("반납하려는 책의 카달로그 번호를 입력하세요"));
                     secondpanel.revalidate(); 
                 }
                 else{
