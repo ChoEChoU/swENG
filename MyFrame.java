@@ -13,6 +13,10 @@ public class MyFrame extends JFrame implements ActionListener
     JTextField name_lend;
     JTextField num_lend;
     JTextField num_return;
+    JTextField num_newbook;
+    JTextField title_newbook;
+    JTextField author_newbook;
+    JTextField name_newborrower;
     public MyFrame(){
         this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -55,20 +59,49 @@ public class MyFrame extends JFrame implements ActionListener
             JButton lendOneBook = new JButton("대출하기");
             secondpanel.add(lendOneBook);        
             this.add(secondpanel,BorderLayout.CENTER);
+            secondpanel.revalidate(); 
         }
         else if(btn.getText().equals("반납")){
             secondpanel.removeAll();
             secondpanel.repaint();
             secondpanel.setLayout(new GridLayout(10,1));
+            secondpanel.add(new JLabel("책의 카달로그 번호"));
             num_return = new JTextField();
             secondpanel.add(num_return);
             JButton returnOneBook = new JButton("반납하기");
             secondpanel.add(returnOneBook);
             this.add(secondpanel,BorderLayout.CENTER);
+            secondpanel.revalidate(); 
         }
         else if(btn.getText().equals("신규 도서 등록")){
+            secondpanel.removeAll();
+            secondpanel.repaint();
+            secondpanel.setLayout(new GridLayout(10,1));
+            secondpanel.add(new JLabel("책의 카달로그 번호"));
+            num_newbook = new JTextField();
+            secondpanel.add(num_newbook);
+            secondpanel.add(new JLabel("책의 제목"));
+            title_newbook = new JTextField();
+            secondpanel.add(title_newbook);
+            secondpanel.add(new JLabel("책의 저자"));
+            author_newbook = new JTextField();
+            secondpanel.add(author_newbook);
+            JButton registerOneBook = new JButton("도서등록하기");
+            secondpanel.add(registerOneBook);
+            this.add(secondpanel,BorderLayout.CENTER);
+            secondpanel.revalidate(); 
         }
         else if(btn.getText().equals("신규 이용자 등록")){
+            secondpanel.removeAll();
+            secondpanel.repaint();
+            secondpanel.setLayout(new GridLayout(10,1));
+            secondpanel.add(new JLabel("이용자의 이름"));
+            name_newborrower = new JTextField();
+            secondpanel.add(name_newborrower);
+            JButton registerOneBorrower = new JButton("이용자 등록하기");
+            secondpanel.add(registerOneBorrower);
+            this.add(secondpanel,BorderLayout.CENTER);
+            secondpanel.revalidate(); 
         }
         else if(btn.getText().equals("대출 가능한 책 조회")){
         }
