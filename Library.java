@@ -40,21 +40,23 @@ public class Library
     }
 
     public void displayBooksForLoan(){
-        Iterator iterBook = registeredBooks.iterator();
-        while(iterBook.hasNext()){
-            Book bookForLoan = (Book)iterBook.next();
-            if(bookForLoan.getLoan() == null){
-                System.out.println(bookForLoan.toString());
+        String result = "";
+        Iterator iterBooks = registeredBooks.iterator();
+        while(iterBooks.hasNext()){
+            Book bookForLoan = (Book)iterBooks.next();
+            if(bookForLoan.checkLoan() == false){
+                result += bookForLoan.toString();
             }
         }
     }
 
     public void displayBooksOnLoan(){
-        Iterator iterBook = registeredBooks.iterator();
-        while(iterBook.hasNext()){
-            Book bookOnLoan = (Book)iterBook.next();
-            if (bookOnLoan.getLoan() != null){
-                System.out.println(bookOnLoan.toString());
+        String result = "";
+        Iterator iterBooks = registeredBooks.iterator();
+        while(iterBooks.hasNext()){
+            Book bookOnLoan = (Book)iterBooks.next();
+            if (bookOnLoan.checkLoan() == true){
+                result += bookOnLoan.toString();
             }
         }
     }
@@ -73,6 +75,7 @@ public class Library
             }
             return "대출에 실패하였습니다.";
         }
+        return "대출에 실패하였습니다.";
     }
 
     public Boolean ReturnOneBook(int CatalogueNumber){
