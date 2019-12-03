@@ -17,9 +17,10 @@ public class MyFrame extends JFrame implements ActionListener
     JTextField title_newbook;
     JTextField author_newbook;
     JTextField name_newborrower;
-    //Library lib = new Library("")
+    Library lib = new Library("My Library");
     public MyFrame(){
         this.setVisible(true);
+        this.setTitle("My Library");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(900, 450);
         this.setLayout(new BorderLayout());
