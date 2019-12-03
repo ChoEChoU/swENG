@@ -1,21 +1,23 @@
 import java.util.*;
 import java.text.*;
 /**
- * 여기에 Loan 클래스 설명을 작성하십시오.
+ * Loan 클래스.
+ * 도서를 대출하며 대출 객체에 해당 이용자와 해당도서를 배당한다.
+ * 도서를 반납하면 대출 객체에 배당 되어있는 이용자와 도서를 배당 해제 한다.
  * 
  * @author(2018315017 임민택 2018315038 이혜인 2018315039 이윤재) 
- * @version (Iteration#1)
+ * @version (Iteration#3)
  */
 public class Loan
 {
     private Borrower borrower;
     private Book book;    
-    private String LendDate;
-    private String ReturnDate;
+    private String lendDate;
+    private String returnDate;
 
     public Loan(){
-        this.LendDate = lendDate();
-        this.ReturnDate = returnDate();
+        this.lendDate = lendDate();
+        this.returnDate = returnDate();
     }
 
     public void attachBook(Book book){
@@ -31,8 +33,7 @@ public class Loan
     }
 
     public Borrower getBorrower(){
-        return borrower;
-        //this.borrower??
+        return this.borrower;
     }
 
     public void detachBook() {
@@ -45,8 +46,10 @@ public class Loan
 
     public String returnDate(){
         Calendar calendar = Calendar.getInstance();
-        calendar.add(Calendar.DAY_OF_MONTH, +14); // 대출 기간을 14일로 설정
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd"); //날짜 포맷 설정
+        calendar.add(Calendar.DAY_OF_MONTH, +14);
+        // 도서의 대출 기간을 14일로 설정
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd"); 
+        //날짜 포맷 설정
         Date time = calendar.getTime();
         String returnDate = format.format(time);
         return returnDate;
@@ -57,5 +60,9 @@ public class Loan
         Date time = new Date();
         String lendDate = format.format(time);
         return lendDate;
+    }
+    
+    public String getReturnDate() {
+        return this.returnDate;
     }
 }
