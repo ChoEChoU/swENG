@@ -7,7 +7,7 @@
 public class Borrower
 {
     private String name;  
-    private Loan loan;
+    private Loan loan = null;
     
     public Borrower(String name){
         this.name = name;
@@ -22,11 +22,6 @@ public class Borrower
     }    
 
     public void detachLoan(Loan loan){
-        loan.attachBorrower(null);//loan객체에 borrower를 배당해제
-        this.loan = null; //detach 후 loan 을 null로 설정
-    }
-    
-    public Loan getLoan(){
-        return loan;
+        loan.detachBorrower();//loan객체에 borrower를 배당해제
     }
 }
