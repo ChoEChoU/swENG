@@ -23,10 +23,9 @@ public class Book implements Comparable<Book>
         return this.CatalougeNumber;
     }
 
-    public Boolean attachLoan(Loan loan){
+    public void attachLoan(Loan loan){
         loan.attachBook(this);//loan객체에 book을 배당
         this.loan = loan;
-        return true;
     }
 
     public void detachLoan(Loan loan){
@@ -47,7 +46,7 @@ public class Book implements Comparable<Book>
         }
     }
     
-    public Boolean checkLoan(){
+    public boolean checkLoan(){
         if(this.loan == null){
             return false;
         }
