@@ -20,15 +20,7 @@ public class Library
     }
 
     public void registerOneBorrower(String Name){ // 동명이인을 확인한다, new borrower(name)
-        Borrower newborrower = new Borrower(Name);
-        if(registeredBorrowers.contains(newborrower)) {
-            System.out.println("이미 등록되있는 이용자입니다.");
-            newborrower = null;
-        }
-        else {
-            registeredBorrowers.add(newborrower);
-            System.out.println("새로운 이용자를 등록했습니다.");
-        }
+        Borrower findedBorrower = findBorrower(Name);
     }
 
     public Boolean registerOneBook(int CatalogueNumber, String title, String author){
@@ -109,6 +101,11 @@ public class Library
     }
     
     public Borrower findBorrower(String name){
-        return null;
+        Iterator iterBorrower = registeredBorrowers.iterator();
+        Borrower borrower = null;
+        while (iterBorrower.hasNext()) {
+            Borrower nextBorrower = (Borrower)iterBorrower.next();
+        }
+        return borrower;
     }
 }
