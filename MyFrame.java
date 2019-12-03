@@ -129,8 +129,32 @@ public class MyFrame extends JFrame implements ActionListener
     class MyListener implements ActionListener{
         public void actionPerformed(ActionEvent e){
             JButton bt = (JButton)e.getSource();
-            if (bt.getText() == "도서 등록하기"){}
-            else if (bt.getText() == "이용자 등록하기") {}
+            if (bt.getText() == "도서 등록하기"){
+                if (title_newbook.getText().equals("")){
+                    secondpanel.add(new JLabel("제목을 입력하세요"));
+                    secondpanel.revalidate(); 
+                }
+                else if(author_newbook.getText().equals("")) {
+                    secondpanel.add(new JLabel("저자를 입력하세요"));
+                    secondpanel.revalidate(); 
+                }				
+                else if(num_newbook.getText().equals("")) {
+                    secondpanel.add(new JLabel("번호를 입력하세요"));
+                    secondpanel.revalidate(); 
+                }
+                else {
+                    //도서 등록 성공 시 
+                }
+            }
+            else if (bt.getText() == "이용자 등록하기") {
+                if(name_newborrower.getText().equals("")) {
+                    secondpanel.add(new JLabel("이름을 입력하세요"));
+                    secondpanel.revalidate(); 
+                }
+                else {
+                    //이용자 등록 성공시 
+                }
+            }
             else if (bt.getText() == "대출하기") {}
             else if (bt.getText() == "반납하기" ) {}
         }
