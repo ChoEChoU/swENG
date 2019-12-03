@@ -28,8 +28,27 @@ public class MyFrame extends JFrame implements ActionListener
         mainpanel.add(btn_displayon); 
         mainpanel.add(btn_displayfor);
         this.add(mainpanel, BorderLayout.NORTH);
+        btn_lend.addActionListener(this); 
+        btn_return.addActionListener(this);
+        btn_newbook.addActionListener(this);
+        btn_newborrower.addActionListener(this);
+        btn_displayon.addActionListener(this);
+        btn_displayfor.addActionListener(this);
     }
 
     public void actionPerformed(ActionEvent e){
+        JButton btn = (JButton)e.getSource();
+        if(btn.getText() == "대출"){
+        }
+        else if(btn.getText() == "반납"){
+        }
+        else if(btn.getText() == "신규 도서 등록"){
+        }
+        else if(btn.getText() == "신규 이용자 등록"){
+        }
+        else if(btn.getText() == "대출 가능한 책 조회"){
+        }
+        else if(btn.getText() == "대출 중인 책 조회"){
+        }
     }
 }
