@@ -107,4 +107,8 @@ public class Library
         }
         return book;
     }
+    
+    public Borrower findBorrower(String name){
+        return null;
+    }
 }
