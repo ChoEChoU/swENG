@@ -75,16 +75,18 @@ public class Library
         }
     }
 
-    public void ReturnOneBook(int CatalogueNumber){
-        Iterator iterBook = registeredBooks.iterator();
-        while(iterBook.hasNext()){
-            Book book = (Book) iterBook.next();
-            if(book.getCatalougeNumber() == CatalogueNumber){
-                Loan loan = loans.get(CatalogueNumber);
-                loan.getBook().detachLoan(loan);
-                loan.getBorrower().detachLoan(loan);
-                loans.remove(CatalogueNumber);
-            }
+    public Boolean ReturnOneBook(int CatalogueNumber){
+        if (loans.get(CatalogueNumber) != null) {
+            Loan loan = loans.get(CatalogueNumber);
+            Book findedBook = loan.getBook();
+            Borrower findedBorrower = loan.getBorrower();
+            findedBook.detachLoan(loan);
+            findedBorrower.detachLoan(loan);
+            loans.remove(CatalogueNumber);
+            return true;
+        }
+        else{
+            return false;
         }
     }
     
