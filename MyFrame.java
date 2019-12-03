@@ -54,7 +54,7 @@ public class MyFrame extends JFrame implements ActionListener
             name_lend = new JTextField();
             secondpanel.add(name_lend);
             secondpanel.add(new JLabel("책의 카달로그 번호"));
-            name_lend = new JTextField();
+            num_lend = new JTextField();
             secondpanel.add(num_lend);
             JButton lendOneBook = new JButton("대출하기");
             secondpanel.add(lendOneBook);        
@@ -104,8 +104,26 @@ public class MyFrame extends JFrame implements ActionListener
             secondpanel.revalidate(); 
         }
         else if(btn.getText().equals("대출 가능한 책 조회")){
+            secondpanel.removeAll(); 
+            secondpanel.repaint();
+            secondpanel.setLayout(new GridLayout(1,1));
+            JTextArea ta_on = new JTextArea();
+            ta_on.setText("대출 가능한 책");
+            JScrollPane scroll_on = new JScrollPane(ta_on);
+            secondpanel.add(scroll_on);
+            ta_on.setEnabled(false);
+            secondpanel.revalidate(); 
         }
         else if(btn.getText().equals("대출 중인 책 조회")){
+            secondpanel.removeAll(); 
+            secondpanel.repaint();
+            secondpanel.setLayout(new GridLayout(1,1));
+            JTextArea ta_for = new JTextArea();
+            ta_for.setText("대출 중인 책");
+            JScrollPane scroll_for = new JScrollPane(ta_for);
+            secondpanel.add(scroll_for);
+            ta_for.setEnabled(false);
+            secondpanel.revalidate(); 
         }
     }
 }
