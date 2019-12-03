@@ -86,7 +86,7 @@ public class MyFrame extends JFrame implements ActionListener
             secondpanel.add(new JLabel("책의 저자"));
             author_newbook = new JTextField();
             secondpanel.add(author_newbook);
-            JButton registerOneBook = new JButton("도서등록하기");
+            JButton registerOneBook = new JButton("도서 등록하기");
             secondpanel.add(registerOneBook);
             this.add(secondpanel,BorderLayout.CENTER);
             secondpanel.revalidate(); 
@@ -124,6 +124,15 @@ public class MyFrame extends JFrame implements ActionListener
             secondpanel.add(scroll_for);
             ta_for.setEnabled(false);
             secondpanel.revalidate(); 
+        }
+    }
+    class MyListener implements ActionListener{
+        public void actionPerformed(ActionEvent e){
+            JButton bt = (JButton)e.getSource();
+            if (bt.getText() == "도서 등록하기"){}
+            else if (bt.getText() == "이용자 등록하기") {}
+            else if (bt.getText() == "대출하기") {}
+            else if (bt.getText() == "반납하기" ) {}
         }
     }
 }
