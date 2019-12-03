@@ -155,8 +155,28 @@ public class MyFrame extends JFrame implements ActionListener
                     //이용자 등록 성공시 
                 }
             }
-            else if (bt.getText() == "대출하기") {}
-            else if (bt.getText() == "반납하기" ) {}
+            else if (bt.getText() == "대출하기") {
+                if(name_lend.getText().equals("")) {
+                    secondpanel.add(new JLabel("이름을 입력하세요"));
+                    secondpanel.revalidate(); 
+                }
+                else if(num_lend.getText().equals("")) {
+                    secondpanel.add(new JLabel("번호를 입력하세요"));
+                    secondpanel.revalidate(); 					
+                }
+                else{
+                    //대출 성공
+                }
+            }
+            else if (bt.getText() == "반납하기" ) {
+                if(num_return.getText().equals("")) {
+                    secondpanel.add(new JLabel("번호를 입력하세요"));
+                    secondpanel.revalidate(); 
+                }
+                else{
+                    //반납 성공
+                }
+            }
         }
     }
 }
