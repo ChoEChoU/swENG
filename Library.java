@@ -105,6 +105,9 @@ public class Library
         Borrower borrower = null;
         while (iterBorrower.hasNext()) {
             Borrower nextBorrower = (Borrower)iterBorrower.next();
+            if (nextBorrower.getName().equals(name)){
+                borrower = nextBorrower;
+            }
         }
         return borrower;
     }
