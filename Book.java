@@ -5,12 +5,11 @@
  * @author (2018315017 임민택 2018315038 이혜인 2018315039 이윤재)
  * @version (Iteration#1)
  */
-public class Book
+public class Book implements Comparable<Book>
 {
     private int CatalougeNumber;
     private String author;
     private String title;
-
     private Loan loan = null;
 
     public Book(int CatalogueNumber, String title, String author)
@@ -32,12 +31,12 @@ public class Book
     }
 
     public void detachLoan(Loan loan){
-        loan.attachBook(null);//loan객체에 book을 배당해제
+        loan.detachBook();//loan객체에 book을 배당해제
         this.loan = null;
 
     }
 
-    public int compareTO(Book book){
+    public int compareTo(Book book){
         if (book.getCatalougeNumber() == this.CatalougeNumber){
             return 0;
         }
