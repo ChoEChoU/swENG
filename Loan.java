@@ -12,7 +12,7 @@ public class Loan
     private Book book;    
     private String LendDate;
     private String ReturnDate;
-    
+
     public Loan(){
         this.LendDate = lendDate();
         this.ReturnDate = returnDate();
@@ -53,6 +53,9 @@ public class Loan
     }
 
     public String lendDate(){
-        return null;
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        Date time = new Date();
+        String lendDate = format.format(time);
+        return lendDate;
     }
 }
