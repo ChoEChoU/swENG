@@ -23,11 +23,10 @@ public class Book implements Comparable<Book>
         return this.CatalougeNumber;
     }
 
-    public void attachLoan(Loan loan){
-
+    public Boolean attachLoan(Loan loan){
         loan.attachBook(this);//loan객체에 book을 배당
         this.loan = loan;
-
+        return true;
     }
 
     public void detachLoan(Loan loan){
@@ -48,11 +47,16 @@ public class Book implements Comparable<Book>
         }
     }
     
-    public Loan getLoan(){
-        return loan;
+    public Boolean checkLoan(){
+        if(this.loan == null){
+            return false;
+        }
+        else{
+            return true;
+        }
     }
     
     public String toString(){
-        return CatalougeNumber + title + author;
+        return " 카탈로그번호 "+CatalougeNumber+" 제목: "+ title+" 저자" + author;
     }
 }
